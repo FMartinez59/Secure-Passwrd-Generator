@@ -1,1 +1,0 @@
-# Secure-Passwrd-Generator
