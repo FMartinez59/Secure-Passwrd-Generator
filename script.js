@@ -21,10 +21,18 @@ function generateAskQuestions() {
     alert("Must be more than 8 and no greater than 128")
     generateAskQuestions()  
   } 
-  else (window.confirm("Would you like to include numbers in your password")) 
+  window.confirm("Would you like to include numbers in your password")
     console.log(passwordLibrary.numbers)
-    generateAskQuestions() 
-  } else if()
+
+  window.confirm("Would you like Special characters?")
+    console.log(passwordLibrary.special)
+
+  window.confirm("Would you like uppercase letters?")
+    console.log(passwordLibrary.upperCase)
+
+  window.confirm("Would you like lowercase letters?")
+    console.log(passwordLibrary.lowerCase)
+  
 } 
 
 
