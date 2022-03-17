@@ -18,9 +18,13 @@ function generateAskQuestions() {
   var passwordLength= prompt("Please enter how many characters you would like") ;
   console.log(passwordLength) 
   if (passwordLength < 8 || passwordLength >128 ) {
-    alert("Is not enough characters. Must be more than 8 and no greater than 128")
+    alert("Must be more than 8 and no greater than 128")
     generateAskQuestions()  
-  } else 
+  } 
+  else (window.confirm("Would you like to include numbers in your password")) 
+    console.log(passwordLibrary.numbers)
+    generateAskQuestions() 
+  } else if()
 } 
 
 
