@@ -10,13 +10,19 @@ var passwordLibrary = {
   lowerCase: ['a', 'b', 'c', 'd', 'e','f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'],
 }
 
-var passwordLength = []
+let passwordLength = 0;
+let numbers = false;
+let special = false;
+let upperCase = false;
+let lowerCase = false;
 
 
 
  var generatePassword = Math.floor(Math.random() * passwordLibrary.length);
 
-function generatePassword ()
+function generatePassword () {
+  
+}
 
 
 
@@ -48,9 +54,6 @@ function generateAskQuestions() {
     writePassword()
 } 
 
-//store answers in a global scale
-
-
 
 
 // Write password to the #password input
@@ -58,10 +61,9 @@ function writePassword() {
 var password = generatePassword();
 
   var passwordText = document.querySelector("#password");
- 
-
-  passwordText.value = password;
-
+ if (password !== undefined) {
+   passwordText.value = password;
+ }
 }
 
 
