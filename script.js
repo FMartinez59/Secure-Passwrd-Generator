@@ -10,31 +10,20 @@ var passwordLibrary = {
   lowerCase: ['a', 'b', 'c', 'd', 'e','f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'],
 }
 
-let passwordLength = 0;
+// let passwordLength = 0;
 let numbers = false;
 let special = false;
 let upperCase = false;
 let lowerCase = false;
 
-
+var passwordLength = 'userInput'
 
  var generatePassword = Math.floor(Math.random() * passwordLibrary.length);
 
 function generatePassword () {
-  
-}
-
-
-
-
-
-
-
-
-//this is declaring the function
-function generateAskQuestions() {
- passwordLength = window.prompt("Please enter how many characters you would like") ;
-  console.log(passwordLength) 
+  //if else so if everything is true make password with all
+  userInput = parseInt(prompt("Please enter how many characters you would like"));
+ 
   if (passwordLength < 8 || passwordLength > 128 ) {
     alert("Must be more than 8 and no greater than 128")
     return;
@@ -50,9 +39,22 @@ function generateAskQuestions() {
 
   lowerCase = window.confirm("Would you like lowercase letters?");
     console.log(passwordLibrary.lowerCase);
- 
+
     writePassword()
 } 
+
+
+
+
+
+
+
+
+//this is declaring the function
+// function generateAskQuestions() {
+ passwordLength = window.prompt("Please enter how many characters you would like") ;
+  console.log(passwordLength) 
+ 
 
 
 
@@ -68,7 +70,7 @@ var password = generatePassword();
 
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", function() {
+generateBtn.addEventListener("click", writePassword);
   //this is calling the function
-  generateAskQuestions()
-} )
+  generatePassword()
+
