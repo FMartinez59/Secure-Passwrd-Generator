@@ -17,12 +17,10 @@ let upperCase = false;
 let lowerCase = false;
 var passwordLength = 0;
 
-// var generatePassword = Math.floor(Math.random() * passwordLibrary.length);
-
 function generatePassword() {
   //if else so if everything is true make password with all
   generateAskQuestions();
-  dataAnalysis();
+  return dataAnalysis();
 }
 //this is declaring the function
 function generateAskQuestions() {
@@ -45,13 +43,10 @@ function generateAskQuestions() {
     if (!numb && !specialChar && !upperCase && !lowerCase) {
       window.alert('You need to have at least one option selected')
     }
-
   } while (
     !numb && !specialChar && !upperCase && !lowerCase
-
   )
 }
-
 function dataAnalysis() {
  console.log('we here?')
   finalPass = [];
@@ -59,7 +54,6 @@ function dataAnalysis() {
     console.log('end4loop')
     if  (numb && finalPass.length < passwordLength) {
       finalPass.push(passwordLibrary.numbers[Math.floor(Math.random() * passwordLibrary.numbers.length)]);
-      
     }
     console.log(finalPass )
     if (specialChar && finalPass.length < passwordLength) {
@@ -73,21 +67,18 @@ function dataAnalysis() {
     if (lowerCase && finalPass.length < passwordLength) {
       finalPass.push(passwordLibrary.lowerCase[Math.floor(Math.random() * passwordLibrary.lowerCase.length)]);
     }
-
+//google shuffle 
   }
-}
-
-
+  return finalPass;
+ }
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
+  passwordText.value = password.join('');
 
 }
-
-
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 //this is calling the function
