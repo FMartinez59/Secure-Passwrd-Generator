@@ -46,7 +46,7 @@ function generateAskQuestions() {
   )
 }
 //this is the brain of the password generator. This function collects the data and then using a for loop + if statements to generate the password based on user input
-// the way this was designed is so that if the response is false it will not run, but if it is true use a math.floor and random function to get the random characters from the object at the top,
+// the way this was designed is so that if the response is false it will not run that specific line of code, but if it is true it will pick out the necessary amount of random characters from the object at the top,
 // then bring it back and push it to the password holder (in my case its finalPass).
 function dataAnalysis() {
   finalPass = [];
