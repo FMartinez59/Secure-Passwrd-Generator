@@ -1,6 +1,5 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-
 var passwordMin = 8;
 var passwordMax = 128;
 var passwordLibrary = {
@@ -10,7 +9,6 @@ var passwordLibrary = {
   lowerCase: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'],
 }
 var finalPass = [];
-// let passwordLength = 0;
 let numbers = false;
 let specialChar = false;
 let upperCase = false;
@@ -18,18 +16,17 @@ let lowerCase = false;
 var passwordLength = 0;
 
 function generatePassword() {
-  //if else so if everything is true make password with all
   generateAskQuestions();
   return dataAnalysis();
 }
 //this is declaring the function
 function generateAskQuestions() {
    passwordLength = prompt("Please enter how many characters you would like");
-  console.log(passwordLength)
   if (passwordLength < 8 || passwordLength > 128) {
     alert("Must be more than 8 and no greater than 128")
     return;
   }
+  //asks the user questions on what they want to include in the password and stores it
   do {
     numb = window.confirm("Would you like to include numbers in your password")
     console.log(passwordLibrary.numbers)
@@ -39,35 +36,33 @@ function generateAskQuestions() {
     console.log(passwordLibrary.upperCase)
     lowerChar = window.confirm("Would you like lowercase letters?")
     console.log(passwordLibrary.lowerCase)
-
+//if the user selects nothing the computer will tell them to select at least one item then end the function
     if (!numb && !specialChar && !upperCase && !lowerCase) {
       window.alert('You need to have at least one option selected')
     }
+    //this makes sure they dont leave everything false 
   } while (
     !numb && !specialChar && !upperCase && !lowerCase
   )
 }
+//this is the brain of the password generator. This function collects the data and then using a for loop + if statements to generate the password based on user input
+// the way this was designed is so that if the response is false it will not run, but if it is true use a math.floor and random function to get the random characters from the object at the top,
+// then bring it back and push it to the password holder (in my case its finalPass).
 function dataAnalysis() {
- console.log('we here?')
   finalPass = [];
   for (let i = 0; finalPass.length < passwordLength; i++) {
-    console.log('end4loop')
     if  (numb && finalPass.length < passwordLength) {
       finalPass.push(passwordLibrary.numbers[Math.floor(Math.random() * passwordLibrary.numbers.length)]);
     }
-    console.log(finalPass )
     if (specialChar && finalPass.length < passwordLength) {
       finalPass.push(passwordLibrary.special[Math.floor(Math.random() * passwordLibrary.special.length)]);
     }
-
     if (upperCase && finalPass.length < passwordLength) {
       finalPass.push(passwordLibrary.upperCase[Math.floor(Math.random() * passwordLibrary.upperCase.length)]);
     }
-
     if (lowerCase && finalPass.length < passwordLength) {
       finalPass.push(passwordLibrary.lowerCase[Math.floor(Math.random() * passwordLibrary.lowerCase.length)]);
     }
-//google shuffle 
   }
   return finalPass;
  }
@@ -75,12 +70,7 @@ function dataAnalysis() {
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
   passwordText.value = password.join('');
-
 }
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-//this is calling the function
-
-
