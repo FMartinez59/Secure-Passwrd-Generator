@@ -21,7 +21,7 @@ function generatePassword() {
 }
 //this is declaring the function
 function generateAskQuestions() {
-   passwordLength = prompt("Please enter how many characters you would like");
+  passwordLength = prompt("Please enter how many characters you would like");
   if (passwordLength < 8 || passwordLength > 128) {
     alert("Must be more than 8 and no greater than 128")
     return;
@@ -32,11 +32,11 @@ function generateAskQuestions() {
     console.log(passwordLibrary.numbers)
     specialChar = window.confirm("Would you like Special characters?")
     console.log(passwordLibrary.special)
-    uppChar = window.confirm("Would you like uppercase letters?")
+    upperCase = window.confirm("Would you like uppercase letters?")
     console.log(passwordLibrary.upperCase)
-    lowerChar = window.confirm("Would you like lowercase letters?")
+    lowerCase = window.confirm("Would you like lowercase letters?")
     console.log(passwordLibrary.lowerCase)
-//if the user selects nothing the computer will tell them to select at least one item then end the function
+    //if the user selects nothing the computer will tell them to select at least one item then end the function
     if (!numb && !specialChar && !upperCase && !lowerCase) {
       window.alert('You need to have at least one option selected')
     }
@@ -51,21 +51,23 @@ function generateAskQuestions() {
 function dataAnalysis() {
   finalPass = [];
   for (let i = 0; finalPass.length < passwordLength; i++) {
-    if  (numb && finalPass.length < passwordLength) {
+    if (numb && finalPass.length < passwordLength) {
       finalPass.push(passwordLibrary.numbers[Math.floor(Math.random() * passwordLibrary.numbers.length)]);
     }
     if (specialChar && finalPass.length < passwordLength) {
       finalPass.push(passwordLibrary.special[Math.floor(Math.random() * passwordLibrary.special.length)]);
+
     }
     if (upperCase && finalPass.length < passwordLength) {
       finalPass.push(passwordLibrary.upperCase[Math.floor(Math.random() * passwordLibrary.upperCase.length)]);
+      console.log(finalPass)
     }
     if (lowerCase && finalPass.length < passwordLength) {
       finalPass.push(passwordLibrary.lowerCase[Math.floor(Math.random() * passwordLibrary.lowerCase.length)]);
     }
   }
   return finalPass;
- }
+}
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
