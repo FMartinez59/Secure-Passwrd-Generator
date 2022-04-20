@@ -6,3 +6,6 @@ The purpose of this assignment is to generate safe and reliable passwords for yo
 
 ## Sample Video
 https://drive.google.com/file/d/1QG6uLCm_pqRy17hc77pvNrDxFNv2n1CD/view 
+
+## Deployed Application
+https://fmartinez59.github.io/Secure-Passwrd-Generator/
